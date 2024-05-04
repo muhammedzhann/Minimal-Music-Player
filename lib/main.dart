@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -21,13 +22,17 @@ class MyHomePage extends StatelessWidget {
         title: Text(
           "Мои поездки",
           style: TextStyle(
-            fontSize: 25,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.keyboard_arrow_left),
+          icon: Icon(
+            Icons.keyboard_arrow_left,
+            color: Colors.black,
+            size: 30,
+          ),
           onPressed: () {},
         ),
       ),
@@ -38,7 +43,7 @@ class MyHomePage extends StatelessWidget {
               top: 5,
               left: 40,
               child: Container(
-                width: 120,
+                width: 150,
                 height: 120,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -60,7 +65,8 @@ class MyHomePage extends StatelessWidget {
                       'расстояние',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
                       ),
                     ),
                   ],
@@ -69,7 +75,7 @@ class MyHomePage extends StatelessWidget {
             ),
             Positioned(
               top: 60,
-              left: 170,
+              left: 180,
               child: Container(
                 width: 150,
                 height: 150,
@@ -85,7 +91,7 @@ class MyHomePage extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 33,
                       ),
                     ),
                     SizedBox(height: 10),
@@ -93,14 +99,16 @@ class MyHomePage extends StatelessWidget {
                       'компенсация',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
                     ),
                     Text(
                       'выбросов СО2',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
                     ),
                   ],
@@ -108,58 +116,73 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 200,
+              bottom: 400,
               left: 20,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Вклад в экологию благодаря вашим поездкам:',
+                    'Вклад в экологию благодаря вашим',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  Text(
+                    'поездкам:',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(height: 12),
                   Row(
                     children: [
                       Container(
                         width: 30,
-                        height: 30,
+                        height: 35,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 229, 231, 229),
                         ),
                         child: Icon(
-                          Icons.eco,
-                          color: Colors.white,
+                          Icons.travel_explore_outlined,
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 18),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Одно дерево может поглотить от 21,77 кг до',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
+                              color: Colors.grey,
+                              fontSize: 15,
                             ),
                           ),
-                          SizedBox(height: 5),
+                          SizedBox(height: 1),
                           Text(
-                            '31,5 кг СО2 в год. Каждая ваша поездка приближает нас к устойчивому будущему и',
+                            '31,5 кг СО2 в год. Каждая ваша поездка приближает ',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
+                              color: Colors.grey,
+                              fontSize: 14,
                             ),
                           ),
                           Text(
-                            'помогает нам сохранить нашу планету.',
+                            'нас к устойчивому будущему и помогает нам ',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
+                          ),
+                          Text(
+                            'сохранить нашу планету.',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 13,
                             ),
                           ),
                         ],
@@ -170,55 +193,56 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 160,
-              left: 25,
+              bottom: 270,
+              left: 20,
               child: Text(
                 'История поездок',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 20,
                 ),
               ),
             ),
             Positioned(
-              bottom: 90,
+              bottom: 180,
               left: 10,
               child: Container(
                 width: MediaQuery.of(context).size.width - 20,
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 margin: EdgeInsets.only(top: 40),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(185, 232, 229, 216),
+                  color: Color.fromARGB(184, 239, 239, 239),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.crop_free,
-                          color: Colors.black,
-                          size: 20,
+                        Text(
+                          '30 Апр, 21:15',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
-                        SizedBox(width: 4),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        SizedBox(height: 5),
+                        Row(
                           children: [
-                            Text(
-                              '30 Апр, 21:15',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
+                            Icon(
+                              Icons.crop_free,
+                              color: Colors.black,
+                              size: 16,
                             ),
+                            SizedBox(width: 10),
                             Text(
                               '2919',
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 12,
+                                fontSize: 13,
                               ),
                             ),
                           ],
@@ -235,43 +259,44 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 25,
+              bottom: 95,
               right: 10,
               child: Container(
                 width: MediaQuery.of(context).size.width - 20,
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 margin: EdgeInsets.only(top: 40),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(185, 232, 229, 216),
+                  color: Color.fromARGB(184, 239, 239, 239),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.crop_free,
-                          color: Colors.black,
-                          size: 20,
+                        Text(
+                          '19 Апр, 11:20',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
-                        SizedBox(width: 4),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        SizedBox(height: 5),
+                        Row(
                           children: [
-                            Text(
-                              '9 Апр , 11:20',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
+                            Icon(
+                              Icons.crop_free,
+                              color: Colors.black,
+                              size: 16,
                             ),
+                            SizedBox(width: 10),
                             Text(
                               '3121',
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 12,
+                                fontSize: 13,
                               ),
                             ),
                           ],
